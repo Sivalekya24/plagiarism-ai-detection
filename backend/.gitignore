@@ -1,0 +1,32 @@
+# Virtual Environment
+venv/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+
+# Environment Variables
+.env
+
+# Uploaded Files
+uploads/*
+!uploads/.gitkeep
+
+# Generated Reports
+reports/generated/*
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+models/code_model.pkl
+
+# Training datasets
+code_training/datasets/
+training/datasets/
