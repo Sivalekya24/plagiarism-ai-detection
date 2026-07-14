@@ -40,7 +40,7 @@
    a demo fallback directly beneath so the app stays interactive before
    the backend is wired up. Delete the demo line once fetch() ships.
 ===================================================================== */
-const API_BASE = "http://localhost:8000";
+const API_BASE = "plagiarism-ai-detection-production.up.railway.app"; // "http://localhost:8000" for local dev
 import { getAdminToken, setAdminToken, clearAdminToken } from "./auth";
 
 const DEMO_LATENCY = 600;
