@@ -99,8 +99,6 @@ torchvision==0.21.0
 tqdm==4.68.4
 traits==7.1.0
 transformers==4.48.3
-tree-sitter==0.26.0
-tree-sitter-languages==1.10.2
 typer==0.26.8
 typing-inspection==0.4.2
 typing_extensions==4.16.0
