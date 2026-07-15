@@ -75,7 +75,9 @@ export default function RepositoryAdmin() {
   }
 
   async function handleDelete(filename) {
-    setDocuments((docs) => docs.filter((d) => d.filename !== filename));
+    setDocuments((docs) =>
+  docs.filter((d) => d.filename !== filename)
+);
     if (archive === "documents") {
       await deleteRepositoryDocument(filename);
     } else {

@@ -1,4 +1,6 @@
 import os
+from datetime import datetime
+
 from services.extraction_service import TextExtractor
 
 
@@ -21,8 +23,20 @@ class RepositoryProvider:
             if os.path.isfile(path):
 
                 documents.append({
-                    "name": file,
-                    "path": path
+
+                    "filename": file,
+
+                    "path": path,
+
+                    "uploadedAt": datetime.fromtimestamp(
+                        os.path.getmtime(path)
+                    ).strftime("%Y-%m-%d %H:%M"),
+
+                    "sizeKb": round(
+                        os.path.getsize(path) / 1024,
+                        2
+                    )
+
                 })
 
         return documents

@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 
 class StatisticsProvider:
@@ -15,7 +16,7 @@ class StatisticsProvider:
 
         total_size = 0
 
-        extensions = {}
+        latest_modified = None
 
         for file in os.listdir(self.repository):
 
@@ -27,20 +28,30 @@ class StatisticsProvider:
 
                 total_size += size
 
-                ext = os.path.splitext(file)[1].lower()
-
-                extensions[ext] = extensions.get(ext, 0) + 1
-
                 files.append(file)
+
+                modified_time = os.path.getmtime(path)
+
+                if latest_modified is None or modified_time > latest_modified:
+
+                    latest_modified = modified_time
 
         return {
 
-            "total_documents": len(files),
+            "totalDocuments": len(files),
 
-            "repository_size_mb": round(total_size / (1024 * 1024), 2),
+            "totalSizeKb": round(total_size / 1024, 2),
 
-            "file_types": extensions,
+            "lastUpdated": (
 
-            "documents": files
+                datetime.fromtimestamp(latest_modified).strftime(
+                    "%Y-%m-%d %H:%M"
+                )
+
+                if latest_modified
+
+                else "-"
+
+            )
 
         }

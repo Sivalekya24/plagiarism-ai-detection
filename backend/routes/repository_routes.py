@@ -63,11 +63,13 @@ async def list_documents():
 
     provider = repository_engine.repository
 
+    documents = provider.get_all_documents()
+
     return {
 
-        "repository_size": len(provider.get_all_documents()),
+        "repository_size": len(documents),
 
-        "documents": provider.get_all_documents()
+        "documents": documents
 
     }
 
